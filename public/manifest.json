@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "FB blacklist",
+  "description": "Highlights words to take your attention reading comments in FB.",
   "version": "1.0",
 
   "options_ui": {
@@ -16,8 +16,8 @@
 
   "content_scripts": [
       {
-          "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/content_script.js"]
+          "matches": ["https://www.facebook.com/"],
+          "js": ["js/content_script.js"]
       }
   ],
 

@@ -1,0 +1,3 @@
+interface LocalStorageData {
+    list?: string
+}

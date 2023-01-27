@@ -1,13 +1,70 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Getting Started Extension's Popup</title>
-    <script src="js/vendor.js"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="js/popup.js"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started Extension's Popup</title>
+  <style>
+    .container-outer {
+      width: 220px;
+    }
+    div.list-item span {
+      max-width: 90%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .btn-remove {
+      background-color: #ff9191;
+      border: transparent;
+      cursor: pointer;
+      font-size: 7px;
+    }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 2px 0px 0px 0px;
+      font-size: smaller;
+    }
+    #list-controls {
+      display: flex;
+      flex-direction: column;
+      align-content: space-around;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 2px 0px 2px 0px;
+    }
+
+    #list-controls label {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    #list-controls label input {
+      width: 70%;
+    }
+  </style>
+  <script src="js/vendor.js"></script>
+</head>
+
+<body>
+  <div class="container-outer">
+    <strong>Blacklist of FB accounts</strong>
+  </div>
+  <div class="container-outer">
+    <div>
+      <p class="error hidden" id="list-error"></p>
+      <div id="list-holder"></div>
+      <hr>
+      <div id="list-controls">
+        <label for="name">Name:<input type="text" id="name"></label>
+        <input type="button" value="Add" id="add-record">
+      </div>
+    </div>
+  </div>
+  <script src="js/popup.js"></script>
+</body>
+
+</html>
