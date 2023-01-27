@@ -1,4 +1,4 @@
-export {}
+export { }
 
 const head = document.head || document.getElementsByTagName('head')[0];
 const style = document.createElement('style');
@@ -10,9 +10,9 @@ head.appendChild(style);
 style.appendChild(document.createTextNode(css));
 
 
-const storageList:string[] = [];
+const storageList: string[] = [];
 
-chrome.storage.onChanged.addListener(function storageUpdateHandler(changes, areaName){
+chrome.storage.onChanged.addListener(function storageUpdateHandler(changes, areaName) {
   if (areaName !== 'local') return;
   resetSearch();
   resetHighlights();
@@ -21,12 +21,12 @@ chrome.storage.onChanged.addListener(function storageUpdateHandler(changes, area
 
 init();
 
-let isScrolling:any;
-window.addEventListener('scroll', function ( event ) {
-	window.clearTimeout( isScrolling );
-	isScrolling = setTimeout(function() {
-		handleList();
-	}, 66);
+let isScrolling: any;
+window.addEventListener('scroll', function (event) {
+  window.clearTimeout(isScrolling);
+  isScrolling = setTimeout(function () {
+    handleList();
+  }, 66);
 }, false);
 
 
@@ -38,26 +38,39 @@ async function init() {
   handleList();
 }
 
-function resetMemoryList(newList:string[]|undefined) {
-  if(newList === undefined) return;
+function resetMemoryList(newList: string[] | undefined) {
+  if (newList === undefined) return;
   storageList.length = 0;
   storageList.push(...newList);
+  handleValuesForMemory();
+}
+
+function handleValuesForMemory() {
+  for (let i = 0; i < storageList.length; i++) {
+    storageList[i] = getParsedResult(storageList[i]);
+  }
+}
+
+function getParsedResult(val:string) {
+  return val.replace(/\s/g, '').toUpperCase();
 }
 
 function loadListFromStorage() {
-  return new Promise((resolve: (val: string[]) => void)  =>{
-      chrome.storage.local.get('list', (result:LocalStorageData)=>{
-          resolve(JSON.parse(result.list!))
-      })
-  }) 
+  return new Promise((resolve: (val: string[]) => void) => {
+    chrome.storage.local.get('list', (result: LocalStorageData) => {
+      resolve(JSON.parse(result.list!))
+    })
+  })
 }
 
 function handleList() {
   let counter = 0;
-  collectPageItems().forEach((nodeElement)=>{
-    for(let childNode of nodeElement.childNodes){
-      if(childNode.nodeType == Node.TEXT_NODE){
-        if(childNode.textContent && storageList.indexOf(childNode.textContent) > -1){
+  collectPageItems().forEach((nodeElement) => {
+    for (let childNode of nodeElement.childNodes) {
+      if (childNode.nodeType == Node.TEXT_NODE) {
+        if(childNode.textContent === null) return;
+        const nodeText = getParsedResult(childNode.textContent);
+        if (storageList.indexOf(nodeText) > -1) {
           nodeElement.classList.add('dgtm-blacklist-name');
           nodeElement.closest('div.x1y1aw1k.xn6708d.xwib8y2.x1ye3gou')?.classList.add('dgtm-blacklist-content');
           nodeElement.closest('div.x78zum5.xdt5ytf.xz62fqu.x16ldp7u')?.classList.add('dgtm-blacklist-content');
@@ -66,7 +79,7 @@ function handleList() {
       }
     };
     nodeElement.classList.add('dgtm-checked');
-    counter ++;
+    counter++;
   });
 
   console.log('Checket Items:', counter);
@@ -86,3 +99,8 @@ function resetHighlights() {
   document.querySelectorAll('.dgtm-blacklist-name').forEach(el => el.classList.remove('dgtm-blacklist-name'));
   document.querySelectorAll('.dgtm-blacklist-content').forEach(el => el.classList.remove('dgtm-blacklist-content'));
 }
+
+// trim input values
+// make uppercase all values in memory, remove all spaces.
+// convert to upper case and remove spaces, dots, special characters for each value when comparing.
+
