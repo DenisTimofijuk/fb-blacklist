@@ -44,7 +44,7 @@ type `Ctrl + Shift + B`
 
 Load `dist` directory
 
-# HOW TO RESET HISTORY
+### HOW TO RESET HISTORY
 Deleting the .git folder may cause problems in your git repository. If you want to delete all your commit history but keep the code in its current state, it is very safe to do it as in the following:  
   - Checkout  
     - `git checkout --orphan latest_branch`
