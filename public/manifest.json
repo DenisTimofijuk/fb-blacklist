@@ -3,7 +3,7 @@
 
   "name": "FB blacklist",
   "description": "Highlights words to take your attention reading comments in FB.",
-  "version": "1.0",
+  "version": "1.1",
 
   "options_ui": {
     "page": "options.html"
