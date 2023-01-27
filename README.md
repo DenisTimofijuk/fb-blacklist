@@ -1,29 +1,7 @@
-# Chrome Extension TypeScript Starter
-
-![build](https://github.com/chibat/chrome-extension-typescript-starter/workflows/build/badge.svg)
-
-Chrome Extension, TypeScript and Visual Studio Code
-
-## Prerequisites
-
-* [node + npm](https://nodejs.org/) (Current Version)
-
-## Option
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-
-## Includes the following
-
-* TypeScript
-* Webpack
-* React
-* Jest
-* Example Code
-    * Chrome Storage
-    * Options Version 2
-    * content script
-    * count up badge number
-    * background
+# Description
+This is a very simple Chrome browser extension to highlight various Facebook accounts while scroolling on Facebook.  
+Primary function is to serve as a black list.   
+Although Facebook has a feature to block harmfull accounts, but sometimes this is not an option. If you need to make world better, you need to see what trolls or fake acounts are talking behind your back. So this will help to pop their comments to take your attention and remind you that this is potentionally harmful account.
 
 ## Project Structure
 
@@ -65,9 +43,6 @@ type `Ctrl + Shift + B`
 ## Load extension to chrome
 
 Load `dist` directory
-
-## Test
-`npx jest` or `npm run test`
 
 # HOW TO RESET HISTORY
 Deleting the .git folder may cause problems in your git repository. If you want to delete all your commit history but keep the code in its current state, it is very safe to do it as in the following:  

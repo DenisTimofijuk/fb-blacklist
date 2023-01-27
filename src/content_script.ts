@@ -14,11 +14,12 @@ const storageList:string[] = [];
 
 chrome.storage.onChanged.addListener(function storageUpdateHandler(changes, areaName){
   if (areaName !== 'local') return;
+  resetSearch();
+  resetHighlights();
   init();
 })
 
 init();
-
 
 let isScrolling:any;
 window.addEventListener('scroll', function ( event ) {
@@ -76,4 +77,12 @@ function collectPageItems() {
 
   console.log('Colected Items:', collection.length);
   return collection
+}
+
+function resetSearch() {
+  document.querySelectorAll('.dgtm-checked').forEach(el => el.classList.remove('dgtm-checked'));
+}
+function resetHighlights() {
+  document.querySelectorAll('.dgtm-blacklist-name').forEach(el => el.classList.remove('dgtm-blacklist-name'));
+  document.querySelectorAll('.dgtm-blacklist-content').forEach(el => el.classList.remove('dgtm-blacklist-content'));
 }
