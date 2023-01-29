@@ -99,8 +99,3 @@ function resetHighlights() {
   document.querySelectorAll('.dgtm-blacklist-name').forEach(el => el.classList.remove('dgtm-blacklist-name'));
   document.querySelectorAll('.dgtm-blacklist-content').forEach(el => el.classList.remove('dgtm-blacklist-content'));
 }
-
-// trim input values
-// make uppercase all values in memory, remove all spaces.
-// convert to upper case and remove spaces, dots, special characters for each value when comparing.
-
