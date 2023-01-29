@@ -8,6 +8,7 @@
     .container-outer {
       width: 220px;
     }
+
     div.list-item span {
       max-width: 90%;
       overflow: hidden;
@@ -19,14 +20,20 @@
       background-color: #ff9191;
       border: transparent;
       cursor: pointer;
-      font-size: 7px;
+      font-size: 8px;
+      margin-left: 2px;
+      margin-right: 2px;
     }
+
     .list-item {
       display: flex;
-      justify-content: space-between;
-      margin: 2px 0px 0px 0px;
+      justify-content: flex-start;
+      /* margin: 2px 0px 0px 0px; */
       font-size: smaller;
+      flex-direction: row;
+      align-items: center;
     }
+
     #list-controls {
       display: flex;
       flex-direction: column;
@@ -46,7 +53,7 @@
       width: 70%;
     }
   </style>
-  <script src="js/vendor.js"></script>
+  <!-- <script src="js/vendor.js"></script> -->
 </head>
 
 <body>

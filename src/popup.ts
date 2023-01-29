@@ -59,8 +59,8 @@ function createListRow(label: string, index: number) {
     link.innerText = label;
     link.classList.add('clicable-item');
 
-    wrapper.appendChild(link);
     wrapper.appendChild(button);
+    wrapper.appendChild(link);
 
     return wrapper;
 }
