@@ -1,10 +1,21 @@
 export {}
 const button_add = document.getElementById('add-record') as HTMLButtonElement;
 const nameInput = document.getElementById('name') as HTMLInputElement;
+const myGroups = document.getElementById('my-groups') as HTMLSelectElement;
+const newGroup = document.getElementById('new-group') as HTMLButtonElement;
+const storageList:string[] = [];
+
+/**!SECTION
+ * groups: [
+ *  {
+ *   name: 'black list',
+ *   items: ['Rokas', 'Tomas']
+ *  }
+ * ]
+ */
 
 button_add.addEventListener('click', saveRecord);
 
-const storageList:string[] = [];
 
 init();
 
@@ -51,7 +62,7 @@ function createListRow(label: string, index: number) {
 
     const button = document.createElement('input');
     button.type = 'button';
-    button.value = 'X';
+    button.value = '-';
     button.className = 'btn-remove';
     button.addEventListener('click', () => removeItemFromList(index));
 

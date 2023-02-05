@@ -7,6 +7,7 @@
   <style>
     .container-outer {
       width: 220px;
+      padding-top: 5px;
     }
 
     div.list-item span {
@@ -36,10 +37,10 @@
 
     #list-controls {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-content: space-around;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
       margin: 2px 0px 2px 0px;
     }
 
@@ -52,21 +53,35 @@
     #list-controls label input {
       width: 70%;
     }
+
+    #my-groups {
+      width: 78%;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   </style>
   <!-- <script src="js/vendor.js"></script> -->
 </head>
 
 <body>
   <div class="container-outer">
-    <strong>Blacklist of FB accounts</strong>
+    <strong>Highlight comments</strong>
   </div>
+  <!-- <div class="container-outer controls">
+    <select id="my-groups"></select>
+    <input type="button" value="+" id="new-group">
+    <input type="button" value="-" id="remove-group">
+  </div> -->
   <div class="container-outer">
     <div>
-      <p class="error hidden" id="list-error"></p>
       <div id="list-holder"></div>
       <hr>
       <div id="list-controls">
-        <label for="name">Name:<input type="text" id="name"></label>
+        <input type="text" id="name" placeholder="Account Name">
         <input type="button" value="Add" id="add-record">
       </div>
     </div>
