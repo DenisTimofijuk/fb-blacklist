@@ -29,13 +29,15 @@ window.addEventListener('scroll', function (event) {
   }, 66);
 }, false);
 
+setInterval(handleList, 500);
+
 
 async function init() {
   const list = await loadListFromStorage();
   console.log('DGTM. content loaded.', list);
 
   resetMemoryList(list);
-  handleList();
+  // handleList();
 }
 
 function resetMemoryList(newList: string[] | undefined) {
